@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebScraper.Models;
+using WebScraper.ScraperLogic;
 
 namespace WebScraper.Controllers
 {
@@ -12,6 +13,8 @@ namespace WebScraper.Controllers
     {
         public IActionResult Index()
         {
+           var valueR =  WebScraper.ScraperLogic.WebScraper.Scrape("http://www.ix.co.za","HeadScript");
+            ViewBag.DOMreturned = valueR;
             return View();
         }
 
